@@ -38,10 +38,6 @@ function App() {
     }
   }
 
-  // useEffect(() => {
-  //   localStorage.setItem('Tasks', JSON.stringify(taskList))
-  // }, [taskList])
-
   const deleteAll = () => {
     setTaskList([])
     localStorage.setItem('Tasks', JSON.stringify([]))
