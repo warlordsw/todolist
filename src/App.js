@@ -1,5 +1,4 @@
-import './App.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import List from './component/List'
 
 const getLocalStorage = () => {
@@ -84,7 +83,6 @@ function App() {
         } else {
           return { ...item, isEditing: false }
         }
-        return item
       })
     )
 
@@ -97,7 +95,6 @@ function App() {
           } else {
             return { ...item, isEditing: false }
           }
-          return item
         })
       )
     )
@@ -155,7 +152,7 @@ function App() {
             </button>
           </div>
         </form>
-        <div className=''>
+        <div>
           <List
             tasks={taskList}
             specificDelete={specificDelete}
