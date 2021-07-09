@@ -17,7 +17,7 @@ const Listtry = ({
           <div key={id} className='px-3 py-6 mb-2 card bordered'>
             <div className='form-control'>
               <label className='cursor-pointer label'>
-                <div className='flex items-center'>
+                <div className='flex items-center flex-grow'>
                   <div>
                     <input
                       type='checkbox'
@@ -27,33 +27,36 @@ const Listtry = ({
                     />
                     <span className='checkbox-mark'></span>
                   </div>
-                  {isEditing ? (
-                    <div className='form-control mx-2 w-80'>
-                      <div className='relative'>
-                        <input
-                          value={taskEdit}
-                          maxLength='25'
-                          type='text'
-                          placeholder='Add task...'
-                          className='w-full pr-16 input input-primary input-bordered'
-                          onChange={(e) => setTaskEdit(e.target.value)}
-                        />
-                        <button
-                          onClick={() => handleEdit(id)}
-                          className='absolute right-0 top-0 rounded-l-none btn btn-accent'
-                        >
-                          Edit
-                        </button>
+                  <form onSubmit={() => handleEdit(id)}>
+                    {isEditing ? (
+                      <div className=' mx-2 flex-grow'>
+                        <div className='relative'>
+                          <input
+                            value={taskEdit}
+                            maxLength='25'
+                            type='text'
+                            placeholder='Add task...'
+                            className='w-full pr-16 input input-primary input-bordered'
+                            onChange={(e) => setTaskEdit(e.target.value)}
+                          />
+                          <button
+                            type='submit'
+                            className='absolute right-0 top-0 rounded-l-none btn btn-accent'
+                          >
+                            Edit
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  ) : checked ? (
-                    <span className='label-text px-2'>
-                      <del className='text-gray-400'>{title}</del>
-                    </span>
-                  ) : (
-                    <span className='label-text px-2'>{title}</span>
-                  )}
+                    ) : checked ? (
+                      <span className='label-text px-2'>
+                        <del className='text-gray-400'>{title}</del>
+                      </span>
+                    ) : (
+                      <span className='label-text px-2'>{title}</span>
+                    )}
+                  </form>
                 </div>
+
                 <div>
                   <div>
                     <button onClick={() => editTask(id)}>

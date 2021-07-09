@@ -9,3 +9,7 @@ body {
   margin: auto;
   padding: 1rem;
 }
+
+.label {
+  justify-content: stretch;
+}
