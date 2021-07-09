@@ -9,10 +9,6 @@ const List = ({
   setTaskEdit,
   handleEdit,
 }) => {
-  // const handleOnChange = () => {
-  //   setIsChecked(!isChecked)
-  // }
-
   return (
     <div className='m-auto  lg:w-1/2'>
       {tasks.map((task) => {
