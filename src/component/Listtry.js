@@ -27,9 +27,15 @@ const Listtry = ({
                     />
                     <span className='checkbox-mark'></span>
                   </div>
-                  <form onSubmit={() => handleEdit(id)}>
-                    {isEditing ? (
-                      <div className=' mx-2 flex-grow'>
+                  {isEditing ? (
+                    <form
+                      className='flex-grow'
+                      onSubmit={(e) => {
+                        e.preventDefault()
+                        handleEdit(id)
+                      }}
+                    >
+                      <div className='form-control mx-2 '>
                         <div className='relative'>
                           <input
                             value={taskEdit}
@@ -47,14 +53,14 @@ const Listtry = ({
                           </button>
                         </div>
                       </div>
-                    ) : checked ? (
-                      <span className='label-text px-2'>
-                        <del className='text-gray-400'>{title}</del>
-                      </span>
-                    ) : (
-                      <span className='label-text px-2'>{title}</span>
-                    )}
-                  </form>
+                    </form>
+                  ) : checked ? (
+                    <span className='label-text px-2'>
+                      <del className='text-gray-400'>{title}</del>
+                    </span>
+                  ) : (
+                    <span className='label-text px-2'>{title}</span>
+                  )}
                 </div>
 
                 <div>
