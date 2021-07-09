@@ -16,9 +16,9 @@ const Listtry = ({
         return (
           <div key={id} className='px-3 py-6 mb-2 card bordered'>
             <div className='form-control'>
-              <label className='cursor-pointer label '>
+              <label className='cursor-pointer label'>
                 <div className='flex items-center'>
-                  <div className='inline-block pr-1'>
+                  <div>
                     <input
                       type='checkbox'
                       className='checkbox checkbox-primary'
@@ -28,45 +28,47 @@ const Listtry = ({
                     <span className='checkbox-mark'></span>
                   </div>
                   {isEditing ? (
-                    <div className='form-control'>
+                    <div className='form-control mx-2 w-80'>
                       <div className='relative'>
                         <input
                           value={taskEdit}
                           maxLength='25'
                           type='text'
-                          placeholder=''
+                          placeholder='Add task...'
                           className='w-full pr-16 input input-primary input-bordered'
                           onChange={(e) => setTaskEdit(e.target.value)}
                         />
                         <button
                           onClick={() => handleEdit(id)}
-                          className='absolute right-0 top-0 rounded-l-none btn btn-primary'
+                          className='absolute right-0 top-0 rounded-l-none btn btn-accent'
                         >
                           Edit
                         </button>
                       </div>
                     </div>
                   ) : checked ? (
-                    <span className='label-text'>
+                    <span className='label-text px-2'>
                       <del className='text-gray-400'>{title}</del>
                     </span>
                   ) : (
-                    <span className='label-text'>{title}</span>
+                    <span className='label-text px-2'>{title}</span>
                   )}
                 </div>
                 <div>
-                  <button onClick={() => editTask(id)}>
-                    <i
-                      className='fa fa-pencil p-3 text-yellow-800'
-                      aria-hidden='true'
-                    ></i>
-                  </button>
-                  <button onClick={() => specificDelete(id)}>
-                    <i
-                      className='fa fa-times p-3 text-red-500'
-                      aria-hidden='true'
-                    ></i>
-                  </button>
+                  <div>
+                    <button onClick={() => editTask(id)}>
+                      <i
+                        className='fa fa-pencil p-3 text-yellow-800'
+                        aria-hidden='true'
+                      ></i>
+                    </button>
+                    <button onClick={() => specificDelete(id)}>
+                      <i
+                        className='fa fa-times p-3 text-red-500'
+                        aria-hidden='true'
+                      ></i>
+                    </button>
+                  </div>
                 </div>
               </label>
             </div>
