@@ -158,6 +158,7 @@ const Apptry = () => {
         <div>
           <Listtry
             tasks={taskList}
+            setTasks={setTaskList}
             specificDelete={specificDelete}
             specificChange={specificChange}
             editTask={editTask}
