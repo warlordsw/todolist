@@ -2,13 +2,13 @@ import { useState } from 'react'
 import Listtry from './component/Listtry'
 
 const getLocalStorage = () => {
-  let getData = localStorage.getItem('Taskss')
+  let getData = localStorage.getItem('Tasks')
   if (getData) {
-    const data = JSON.parse(localStorage.getItem('Taskss'))
+    const data = JSON.parse(localStorage.getItem('Tasks'))
     const checkingEdit = data.map((item) => {
       return { ...item, isEditing: false }
     })
-    localStorage.setItem('Taskss', JSON.stringify(checkingEdit))
+    localStorage.setItem('Tasks', JSON.stringify(checkingEdit))
     return data
   } else {
     return []
@@ -32,20 +32,20 @@ const Apptry = () => {
         isEditing: false,
       }
       setTaskList([...taskList, newTask])
-      localStorage.setItem('Taskss', JSON.stringify([...taskList, newTask]))
+      localStorage.setItem('Tasks', JSON.stringify([...taskList, newTask]))
       setTask('')
     }
   }
 
   const deleteAll = () => {
     setTaskList([])
-    localStorage.setItem('Taskss', JSON.stringify([]))
+    localStorage.setItem('Tasks', JSON.stringify([]))
   }
 
   const specificDelete = (id) => {
     setTaskList(taskList.filter((item) => item.id !== id))
     localStorage.setItem(
-      'Taskss',
+      'Tasks',
       JSON.stringify(taskList.filter((item) => item.id !== id))
     )
   }
@@ -61,7 +61,7 @@ const Apptry = () => {
       })
     )
     localStorage.setItem(
-      'Taskss',
+      'Tasks',
       JSON.stringify(
         taskList.map((item) => {
           if (item.id === specificTask.id) {
@@ -87,7 +87,7 @@ const Apptry = () => {
     )
 
     localStorage.setItem(
-      'Taskss',
+      'Tasks',
       JSON.stringify(
         taskList.map((item) => {
           if (item.id === specificTask.id) {
@@ -114,7 +114,7 @@ const Apptry = () => {
         })
       )
       localStorage.setItem(
-        'Taskss',
+        'Tasks',
         JSON.stringify(
           taskList.map((item) => {
             if (item.id === specificTask.id) {

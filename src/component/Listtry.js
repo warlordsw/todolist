@@ -16,7 +16,7 @@ const Listtry = ({
     const [reorderedItem] = items.splice(result.source.index, 1)
     items.splice(result.destination.index, 0, reorderedItem)
     setTasks(items)
-    localStorage.setItem('Taskss', JSON.stringify(items))
+    localStorage.setItem('Tasks', JSON.stringify(items))
   }
 
   return (
