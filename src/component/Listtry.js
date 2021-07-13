@@ -23,13 +23,13 @@ const Listtry = ({
     <div>
       <DragDropContext onDragEnd={onEnd}>
         <Droppable droppableId='12345678'>
-          {(provided, snapshot) => (
+          {(provided) => (
             <div ref={provided.innerRef}>
               {tasks.map((task, index) => {
                 const { id, title, checked, isEditing } = task
                 return (
                   <Draggable draggableId={id} key={id} index={index}>
-                    {(provided, snapshot) => (
+                    {(provided) => (
                       <div
                         ref={provided.innerRef}
                         {...provided.draggableProps}
