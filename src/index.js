@@ -1,13 +1,11 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
 import reportWebVitals from './reportWebVitals'
 import Apptry from './Apptry'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
     <Apptry />
   </React.StrictMode>,
   document.getElementById('root')
